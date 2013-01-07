@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/radioGroup_compMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onComputationModeSelected"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView_comp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comp" />
+
+        <RadioButton
+            android:id="@+id/radioButton_compCPU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onComputationModeSelected"
+            android:text="@string/compCPU" />
+
+        <RadioButton
+            android:id="@+id/radioButton_compRS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onComputationModeSelected"
+            android:text="@string/compRS" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_realNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView_labelReal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="5"
+            android:text="@string/labelProgressBar_Real" />
+
+        <SeekBar
+            android:id="@+id/seekBar_realNumber"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="20000"
+            android:progress="10000" />
+
+      	<TextView
+            android:id="@+id/textView_realValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textProgressBar_value" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_imaginaryNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView_labelImaginary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="5"
+            android:text="@string/labelProgressBar_Imaginary" />
+
+        <SeekBar
+            android:id="@+id/seekBar_imaginaryNumber"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:max="20000"
+            android:progress="10000" />
+
+        <TextView
+            android:id="@+id/textView_imaginaryValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textProgressBar_value" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_rendering"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button_draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickDraw"
+            android:text="@string/textButton_draw" />
+
+        <TextView
+            android:id="@+id/textView_labelElapsedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/elapsed" />
+
+        <TextView
+            android:id="@+id/textView_elapsedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progressBar_rendering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <tmf3jr.images.julia.JuliaRendererSurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

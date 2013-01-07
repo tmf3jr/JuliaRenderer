@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Julia Renderer</string>
+    <string name="elapsed">Elapsed Time (ms): </string>
+    <string name="progresDialogTitle">Drawing</string>
+    <string name="progressDialogMessage">Please wait a while</string>
+    <string name="compCPU">CPU</string>
+    <string name="compRS">RenderScript</string>
+    <string name="comp">Computation:</string>
+    <string name="labelProgressBar_Real">"Real: "</string>
+    <string name="labelProgressBar_Imaginary">"Imaginary: "</string>
+    <string name="textProgressBar_value">0.0000</string>
+    <string name="textButton_draw">Draw</string>
+    <string name="empty"></string>
+    <string name="menu_settings">Settings</string>
+    <string name="not_implemented">Not implemented yet</string>
+</resources>

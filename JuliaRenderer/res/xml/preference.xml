@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:summary="Computation on CPU" android:title="CPU Computation">
+        <EditTextPreference android:positiveButtonText="OK" android:dialogTitle="Num of CPUs" android:dialogMessage="Num of CPUs affects number of concurrent worker threads" android:negativeButtonText="Cancel"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>

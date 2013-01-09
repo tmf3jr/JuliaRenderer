@@ -1,0 +1,280 @@
+<class-diagram version="1.0.10" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererActivity" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererActivity.java" 
+    binary="false">    
+    <position height="265" width="325" x="313" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererSurfaceView" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererSurfaceView.java" 
+    binary="false">    
+    <position height="214" width="321" x="313" y="342"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererPreferenceActivity" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererPreferenceActivity.java" 
+    binary="false">    
+    <position height="78" width="209" x="674" y="342"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererThread" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererThread.java" 
+    binary="false">    
+    <position height="299" width="321" x="334" y="749"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaBitmapGenerator" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaBitmapGenerator.java" 
+    binary="false">    
+    <position height="282" width="471" x="358" y="1088"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" 
+    name="tmf3jr.android.images.julia.MultiThreadedJuliaBitmapGenerator" project="JuliaRenderer" 
+    file="/JuliaRenderer/src/tmf3jr/android/images/julia/MultiThreadedJuliaBitmapGenerator.java" binary="false">    
+    <position height="163" width="538" x="419" y="1410"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" 
+    name="tmf3jr.android.images.julia.MultiThreadedJuliaBitmapGenerator.JuliaComputationWorker" project="JuliaRenderer" 
+    file="/JuliaRenderer/src/tmf3jr/android/images/julia/MultiThreadedJuliaBitmapGenerator.java" binary="false">    
+    <position height="78" width="166" x="419" y="1613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererPreferenceFragment" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererPreferenceFragment.java" 
+    binary="false">    
+    <position height="95" width="222" x="716" y="749"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.ColorTableGenerator" project="JuliaRenderer" 
+    file="/JuliaRenderer/src/tmf3jr/images/ColorTableGenerator.java" binary="false">    
+    <position height="163" width="168" x="588" y="1731"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <enumeration id="10" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.BitmapGeneratorComputationMode" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/BitmapGeneratorComputationMode.java" binary="false">    
+    <position height="112" width="276" x="42" y="1088"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </enumeration>  
+  <interface id="11" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.BitmapGeneratorListener" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/BitmapGeneratorListener.java" binary="false">    
+    <position height="95" width="190" x="1429" y="1088"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class id="12" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.DefaultColorTableGenerator" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/DefaultColorTableGenerator.java" binary="false">    
+    <position height="78" width="181" x="358" y="1934"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="13" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.BitmapGenerator" project="JuliaRenderer" 
+    file="/JuliaRenderer/src/tmf3jr/images/BitmapGenerator.java" binary="false">    
+    <position height="367" width="278" x="1469" y="342"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="14" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.ColorTableBitmapGenerator" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/ColorTableBitmapGenerator.java" binary="false">    
+    <position height="180" width="430" x="978" y="749"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <dependency id="15">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="16">    
+    <bendpoint x="685" y="749"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="17" name="listener"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="20" name="surfaceView"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <realization id="23">    
+    <bendpoint x="1438" y="342"/>    
+    <bendpoint x="1438" y="749"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <dependency id="24">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="25">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="26">    
+    <bendpoint x="176" y="342"/>    
+    <bendpoint x="176" y="749"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="28">    
+    <bendpoint x="197" y="749"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="29" name="mode"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="31">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="32">    
+    <bendpoint x="1459" y="749"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="33" name="listener"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="35">    
+    <bendpoint x="859" y="1088"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="36">    
+    <bendpoint x="987" y="1088"/>    
+    <bendpoint x="987" y="1410"/>    
+    <bendpoint x="987" y="1613"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="37" name="colorTableGenerator"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="39">    
+    <bendpoint x="615" y="1613"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="40">    
+    <bendpoint x="282" y="342"/>    
+    <bendpoint x="282" y="749"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="41">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="43">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="44" name="rendererThread"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="47" name="surfaceView"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="49">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </nesting>  
+  <dependency id="50">    
+    <bendpoint x="367" y="1410"/>    
+    <bendpoint x="367" y="1613"/>    
+    <bendpoint x="367" y="1731"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="51">    
+    <bendpoint x="388" y="1410"/>    
+    <bendpoint x="388" y="1613"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="52">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="53">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="true" package="false" protected="false" private="false"/>    
+    <operations public="true" package="false" protected="false" private="false"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

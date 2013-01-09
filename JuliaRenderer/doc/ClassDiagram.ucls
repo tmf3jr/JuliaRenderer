@@ -1,32 +1,35 @@
 <class-diagram version="1.0.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true">  
-  <class id="1" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.julia.JuliaRendererActivity" 
-    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/julia/JuliaRendererActivity.java" binary="false">    
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererActivity" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererActivity.java" 
+    binary="false">    
     <position height="51" width="145" x="570" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="2" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.julia.JuliaRendererSurfaceView" 
-    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/julia/JuliaRendererSurfaceView.java" binary="false">    
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererSurfaceView" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererSurfaceView.java" 
+    binary="false">    
     <position height="51" width="177" x="372" y="128"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="3" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.julia.JuliaRendererThread" 
-    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/julia/JuliaRendererThread.java" binary="false">    
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaRendererThread" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaRendererThread.java" 
+    binary="false">    
     <position height="51" width="144" x="286" y="219"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="4" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.julia.MultiThreadedJuliaBitmapGenerator" 
-    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/julia/MultiThreadedJuliaBitmapGenerator.java" 
-    binary="false">    
+  <class id="4" corner="BOTTOM_RIGHT" language="java" 
+    name="tmf3jr.android.images.julia.MultiThreadedJuliaBitmapGenerator" project="JuliaRenderer" 
+    file="/JuliaRenderer/src/tmf3jr/android/images/julia/MultiThreadedJuliaBitmapGenerator.java" binary="false">    
     <position height="51" width="229" x="286" y="401"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
@@ -34,8 +37,8 @@
     </display>  
   </class>  
   <class id="5" corner="BOTTOM_RIGHT" language="java" 
-    name="tmf3jr.images.julia.MultiThreadedJuliaBitmapGenerator.JuliaComputationWorker" project="JuliaRenderer" 
-    file="/JuliaRenderer/src/tmf3jr/images/julia/MultiThreadedJuliaBitmapGenerator.java" binary="false">    
+    name="tmf3jr.android.images.julia.MultiThreadedJuliaBitmapGenerator.JuliaComputationWorker" project="JuliaRenderer" 
+    file="/JuliaRenderer/src/tmf3jr/android/images/julia/MultiThreadedJuliaBitmapGenerator.java" binary="false">    
     <position height="51" width="166" x="286" y="492"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
@@ -90,8 +93,9 @@
       <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <class id="12" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.images.julia.JuliaBitmapGenerator" 
-    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/images/julia/JuliaBitmapGenerator.java" binary="false">    
+  <class id="12" corner="BOTTOM_RIGHT" language="java" name="tmf3jr.android.images.julia.JuliaBitmapGenerator" 
+    project="JuliaRenderer" file="/JuliaRenderer/src/tmf3jr/android/images/julia/JuliaBitmapGenerator.java" 
+    binary="false">    
     <position height="51" width="148" x="530" y="310"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tmf3jr.images.julia"
+    package="tmf3jr.android.images.julia"
     android:versionCode="1"
     android:versionName="1.0" android:installLocation="auto">
 
-    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15"/>
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="14"/>
 
     <application
         android:icon="@drawable/icon_julia"
@@ -13,7 +13,7 @@
         
         <activity
             android:label="@string/app_name"
-            android:name="tmf3jr.images.julia.JuliaRendererActivity" android:multiprocess="true">
+            android:name="JuliaRendererActivity" android:multiprocess="true">
             <intent-filter android:label="@string/app_name" android:icon="@drawable/icon_julia">
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             </activity>
+        <activity android:name="JuliaRendererPreferenceActivity"></activity>
     </application>
 
 </manifest>

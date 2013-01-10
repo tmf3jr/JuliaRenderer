@@ -17,12 +17,8 @@ import android.view.SurfaceView;
  * Julia fractal renderer surface thread.
  */
 public class JuliaRendererThread extends Thread {
-	/** bitmap generator's computation mode */
-	private BitmapGeneratorComputationMode computationMode;
 	/** bitmap generator instance */
 	private JuliaBitmapGenerator generator;
-	/** bitmap generator listener */
-	private BitmapGeneratorListener listener;
 	
 	/** Android context */
 	private Context context;
@@ -43,9 +39,7 @@ public class JuliaRendererThread extends Thread {
 		this.context = surfaceView.getContext();
 		this.holder = surfaceView.getHolder();
 		this.running = true;
-		this.computationMode = mode;
-		this.listener = listener;
-		this.createGenerator();
+		this.createGenerator(mode, listener);
 	}
 
 	/**
@@ -96,24 +90,22 @@ public class JuliaRendererThread extends Thread {
 	 * Create a new bitmap generator.
 	 * Type of generator is determined by computation mode.
 	 */
-	private void createGenerator() {
-		switch (this.computationMode) {
+	private void createGenerator(BitmapGeneratorComputationMode mode, BitmapGeneratorListener listener) {
+		switch (mode) {
 		case RENDER_SCRIPT:
 			this.generator = new RenderScriptJuliaBitmapGenerator(context);
 			break;
 		case CPU:
 		default:
-			MultiThreadedJuliaBitmapGenerator cpuGenerator = new MultiThreadedJuliaBitmapGenerator();
 			int threadCount = MultiThreadedJuliaBitmapGenerator.DEFAULT_THREAD_COUNT;
 			String prefKey_numOfCPU = context.getString(R.string.prefkey_numOfCPU);
 			SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
 			if (prefKey_numOfCPU != null && sharedPref != null) {
 				threadCount = Integer.parseInt(sharedPref.getString(prefKey_numOfCPU, Integer.toString(threadCount)));
 			}
-			cpuGenerator.setThreadCount(threadCount);
-			this.generator = cpuGenerator;
+			this.generator = new MultiThreadedJuliaBitmapGenerator(threadCount);
 		}
-		this.generator.setListener(this.listener);
+		this.generator.setListener(listener);
 	}
 
 	
@@ -129,29 +121,5 @@ public class JuliaRendererThread extends Thread {
 	public JuliaBitmapGenerator getGenerator() {
 		return generator;
 	}
-		
-	public BitmapGeneratorComputationMode getComputationMode() {
-		return computationMode;
-	}
-
-	/**
-	 * Set computation mode.
-	 * Note that, this method recreates BitmapGenerator instance.
-	 * @param computationMode
-	 */
-	public void setComputationMode(BitmapGeneratorComputationMode computationMode) {
-		this.computationMode = computationMode;
-		this.createGenerator();
-	}
-
-	public BitmapGeneratorListener getListener() {
-		return listener;
-	}
-
-	public void setListener(BitmapGeneratorListener listener) {
-		this.listener = listener;
-		this.generator.setListener(listener);
-	}
-
 
 }

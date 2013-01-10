@@ -32,17 +32,17 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 	 */
 	public MultiThreadedJuliaBitmapGenerator(double left, double bottom, double width, double height,
 			int resolutionX, int resolutionY, double cx, double cy,
-			ColorTableGenerator colorTableGenerator) {
+			ColorTableGenerator colorTableGenerator, int numOfCPUs) {
 		super(left, bottom, width, height, resolutionX, resolutionY, cx, cy, colorTableGenerator);
-		this.threadCount = this.getNumOfCPUs();
+		this.threadCount = numOfCPUs;
 	}
 	
 	/**
 	 * Default constructor. parameters must be set before generating a bitmap.
 	 */
-	public MultiThreadedJuliaBitmapGenerator() {
+	public MultiThreadedJuliaBitmapGenerator(int numOfCPUs) {
 		super();
-		this.threadCount = this.getNumOfCPUs();
+		this.threadCount = numOfCPUs;
 	}
 
 	//BitmapGenerator implementation ------------------------------------------
@@ -132,11 +132,11 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 		this.threadCount = threadCount;
 	}
 
-	//private methods ---------------------------------------------------------
-	public int getNumOfCPUs() {
-		int numOfCPUs = Runtime.getRuntime().availableProcessors();
-		Log.d(this.getClass().getSimpleName(), "Num of CPUs = " + numOfCPUs);
-		return numOfCPUs;
-	}
+//	//private methods ---------------------------------------------------------
+//	public int getNumOfCPUs() {
+//		int numOfCPUs = Runtime.getRuntime().availableProcessors();
+//		Log.d(this.getClass().getSimpleName(), "Num of CPUs = " + numOfCPUs);
+//		return numOfCPUs;
+//	}
 	
 }

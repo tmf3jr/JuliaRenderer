@@ -30,19 +30,18 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
     
     //functionality implementation --------------------------------------------
     private void drawJulia() {
-		JuliaBitmapGenerator generator = this.surfaceView.getGenerator();
-		//return if previous generation is still running
-		if (generator.isGenerating()) {
-			return;
+    	JuliaBitmapGenerator generator = this.surfaceView.getGenerator();
+		//generator must be prepared, and must not be busy
+		if (generator != null && !this.surfaceView.isRendering()) {
+			//generate and draw image
+	    	SeekBar seekBarReal = (SeekBar)this.findViewById(R.id.seekBar_realNumber);
+	    	SeekBar seekBarImaginary = (SeekBar)this.findViewById(R.id.seekBar_imaginaryNumber);
+	    	double cx = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBarReal.getProgress() / seekBarReal.getMax();
+			double cy = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBarImaginary.getProgress() / seekBarImaginary.getMax();
+			generator.setCx(cx);
+			generator.setCy(cy);
+	    	this.surfaceView.draw();
 		}
-		//generate and draw image
-    	SeekBar seekBarReal = (SeekBar)this.findViewById(R.id.seekBar_realNumber);
-    	SeekBar seekBarImaginary = (SeekBar)this.findViewById(R.id.seekBar_imaginaryNumber);
-		double cx = generator.getLeft() + generator.getWidth() * seekBarReal.getProgress() / seekBarReal.getMax();
-		double cy = generator.getBottom() + generator.getHeight() * seekBarImaginary.getProgress() / seekBarImaginary.getMax();
-		generator.setCx(cx);
-		generator.setCy(cy);
-    	this.surfaceView.draw();
     }
 
     /**
@@ -60,6 +59,18 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
         }else{
             RadioButton radioButtonCompCPU = (RadioButton)this.findViewById(R.id.radioButton_compCPU);        	
             radioButtonCompCPU.setChecked(true);
+        }
+    }
+    
+    /**
+     * Synchronize computation mode from UI to surface view
+     */
+    private void syncComputationMode() {
+        RadioButton radioButtonCompRS = (RadioButton)this.findViewById(R.id.radioButton_compRS);
+        if (radioButtonCompRS.isChecked()) {
+        	this.surfaceView.setComputationMode(BitmapGeneratorComputationMode.RENDER_SCRIPT);
+        }else{
+        	this.surfaceView.setComputationMode(BitmapGeneratorComputationMode.CPU);
         }
     }
  
@@ -85,12 +96,7 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
     	//prepare for rendering
         this.surfaceView = (JuliaRendererSurfaceView)this.findViewById(R.id.surfaceview);
         //set generation mode
-        RadioButton radioButtonCompRS = (RadioButton)this.findViewById(R.id.radioButton_compRS);
-        if (radioButtonCompRS.isChecked()) {
-        	this.surfaceView.setComputationMode(BitmapGeneratorComputationMode.RENDER_SCRIPT);
-        }else{
-        	this.surfaceView.setComputationMode(BitmapGeneratorComputationMode.CPU);
-        }    
+        this.syncComputationMode();
         //set bitmap generation listener
         this.surfaceView.setListener(this);
     }
@@ -137,14 +143,7 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
     
     //View event handler ------------------------------------------------------
     public void onComputationModeSelected(View v) {
-    	switch (v.getId()) {
-    	case R.id.radioButton_compCPU:
-    		this.surfaceView.setComputationMode(BitmapGeneratorComputationMode.CPU);
-    		break;
-    	case R.id.radioButton_compRS:
-    		this.surfaceView.setComputationMode(BitmapGeneratorComputationMode.RENDER_SCRIPT);
-    		break;
-    	}
+    	this.syncComputationMode();
     }
     
 	public void onClickDraw(View v) {
@@ -162,6 +161,7 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
 	
     //BitmapGeneratorListener implementation ----------------------------------
     public void onGenerationStarted() {
+    	//displays progress
     	final ProgressBar renderingProgress = (ProgressBar)this.findViewById(R.id.progressBar_rendering);
     	renderingProgress.post(new Runnable() {
 			public void run() {
@@ -171,6 +171,7 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
     }
 	
 	public void onGenerationCompleted(long elapsedTime) {
+		//hide progress
 		final ProgressBar renderingProgress = (ProgressBar)this.findViewById(R.id.progressBar_rendering);
     	renderingProgress.post(new Runnable() {
 			public void run() {
@@ -190,25 +191,22 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
 
 	//OnSeekBarChangeListener implementation ----------------------------------
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-		//get generator
-		JuliaBitmapGenerator generator = this.surfaceView.getGenerator();
 		//update text by current seek bar value
 		DecimalFormat formatter = new DecimalFormat("0.0000");
 		switch (seekBar.getId()) {
 		case R.id.seekBar_realNumber:
-			double cx = generator.getLeft() + generator.getWidth() * progress / seekBar.getMax();
+	    	double cx = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBar.getProgress() / seekBar.getMax();
 			String valueCx = formatter.format(cx);
 			((TextView)this.findViewById(R.id.textView_realValue)).setText(valueCx);
 			break;
 		case R.id.seekBar_imaginaryNumber:
-			double cy = generator.getBottom() + generator.getHeight() * progress / seekBar.getMax();
+			double cy = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBar.getProgress() / seekBar.getMax();
 			String valueCy = formatter.format(cy);
 			((TextView)this.findViewById(R.id.textView_imaginaryValue)).setText(valueCy);
 			break;
 		}
-		if (fromUser) {
-			this.drawJulia();
-		}
+		//draw image
+		this.drawJulia();
 	}
 
 	public void onStartTrackingTouch(SeekBar seekBar) {

@@ -12,6 +12,7 @@ import tmf3jr.android.images.DefaultColorTableGenerator;
 public abstract class JuliaBitmapGenerator extends ColorTableBitmapGenerator {
 	public static final double CONST_MAX = 2.0;
 	public static final double CONST_MIN = -2.0;
+	public static final double CONST_ = -2.0;
 	public static final double WIDTH_MAX = 4.0;
 	public static final double HEIGHT_MAX = 4.0;
 	public static final double COORD_DISTANCE_MAX = 4.0;
@@ -47,7 +48,7 @@ public abstract class JuliaBitmapGenerator extends ColorTableBitmapGenerator {
 	public void setCx(double cx) {
 		if (cx < CONST_MIN || CONST_MAX < cx) {
 			throw new IllegalArgumentException("constant must be between " +
-					CONST_MIN + " and " + CONST_MAX);
+					CONST_MIN + " and " + CONST_MAX + ": actual " + cx);
 		}
 		this.cx = cx;
 	}
@@ -59,7 +60,7 @@ public abstract class JuliaBitmapGenerator extends ColorTableBitmapGenerator {
 	public void setCy(double cy) {
 		if (cy < CONST_MIN || CONST_MAX < cy) {
 			throw new IllegalArgumentException("constant must be between " +
-					CONST_MIN + " and " + CONST_MAX);
+					CONST_MIN + " and " + CONST_MAX + ": actual " + cy);
 		}
 		this.cy = cy;
 	}

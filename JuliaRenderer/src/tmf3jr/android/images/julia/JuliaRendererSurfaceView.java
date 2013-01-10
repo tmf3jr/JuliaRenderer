@@ -18,7 +18,7 @@ public class JuliaRendererSurfaceView extends SurfaceView  implements SurfaceHol
 	/** bitmap generation event listener */
 	private BitmapGeneratorListener listener;
 	/** bitmap generation mode */
-	private BitmapGeneratorComputationMode compurationMode;
+	private BitmapGeneratorComputationMode computationMode;
 	
 	//constructors ------------------------------------------------------------	
 	/**
@@ -45,18 +45,40 @@ public class JuliaRendererSurfaceView extends SurfaceView  implements SurfaceHol
 			}
 		}
 	}
+	
+	/**
+	 * Returns true is rendering thread is working, otherwise false
+	 * @return
+	 */
+	public boolean isRendering() {
+		boolean rendering = false;
+		if (this.rendererThread != null) {
+			rendering = this.rendererThread.getGenerator().isGenerating();
+		}
+		return rendering;
+	}
 
 	//private methods ---------------------------------------------------------
 	/**
 	 * Create a new rendering thread
 	 */
 	private void createSurfaceViewThread() {
-		this.rendererThread = new JuliaRendererThread(this, this.compurationMode, this.listener);
+		this.rendererThread = new JuliaRendererThread(this, this.computationMode, this.listener);
 		this.rendererThread.start();
 		//debug
 		Log.d(this.getClass().getSimpleName(), "Created a new rederer thread");
 	}
 
+	private void destroySurfaceViewThread() {
+		if (this.rendererThread != null) {
+			this.rendererThread.setRunning(false);
+			this.rendererThread.interrupt();
+			this.rendererThread = null;
+			//debug
+			Log.d(this.getClass().getSimpleName(), "Destroyed a rederer thread");
+		}
+	}
+	
 	//access methods ----------------------------------------------------------
 	/**
 	 * Returns bitmap generator.
@@ -73,19 +95,25 @@ public class JuliaRendererSurfaceView extends SurfaceView  implements SurfaceHol
 	public void setListener(BitmapGeneratorListener listener) {
 		this.listener = listener;
 		if (this.rendererThread != null) {
-			this.rendererThread.setListener(listener);
+			this.destroySurfaceViewThread();
+			this.createSurfaceViewThread();
 		}
 	}
 	
+	public BitmapGeneratorListener getListener() {
+		return listener;
+	}
+	
 	public void setComputationMode(BitmapGeneratorComputationMode computationMode) {
-		this.compurationMode = computationMode;
+		this.computationMode = computationMode;
 		if (this.rendererThread != null) {
-			this.rendererThread.setComputationMode(computationMode);
+			this.destroySurfaceViewThread();
+			this.createSurfaceViewThread();
 		}
 	}
 
 	public BitmapGeneratorComputationMode getComputationMode() {
-		return this.compurationMode;
+		return this.computationMode;
 	}
 	
 	
@@ -102,13 +130,7 @@ public class JuliaRendererSurfaceView extends SurfaceView  implements SurfaceHol
 
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		//destroy rendering thread
-		if (this.rendererThread != null) {
-			this.rendererThread.setRunning(false);
-			this.rendererThread.interrupt();
-			this.rendererThread = null;
-			//debug
-			Log.d(this.getClass().getSimpleName(), "Destroyed a rederer thread");
-		}
+		this.destroySurfaceViewThread();
 	}
 
 }

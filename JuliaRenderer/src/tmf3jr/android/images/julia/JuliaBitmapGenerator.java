@@ -12,9 +12,12 @@ import tmf3jr.android.images.DefaultColorTableGenerator;
 public abstract class JuliaBitmapGenerator extends ColorTableBitmapGenerator {
 	public static final double CONST_MAX = 2.0;
 	public static final double CONST_MIN = -2.0;
+	public static final double CONST_LEN = CONST_MAX - CONST_MIN;
 	public static final double CONST_ = -2.0;
 	public static final double WIDTH_MAX = 4.0;
 	public static final double HEIGHT_MAX = 4.0;
+	public static final double COORD_MIN = -2.0;
+	public static final double COORD_MAX = 2.0;	
 	public static final double COORD_DISTANCE_MAX = 4.0;
 	public static final int RESOLUTION_DEFAULT = 400;
 	public static final int DEPTH_DEFAULT = 16;

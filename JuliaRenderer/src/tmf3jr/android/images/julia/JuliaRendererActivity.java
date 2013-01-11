@@ -29,17 +29,20 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
 	private JuliaRendererSurfaceView surfaceView;
     
     //functionality implementation --------------------------------------------
+	private double calcConst(SeekBar seekBar) {
+		return JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_LEN * seekBar.getProgress() / seekBar.getMax();
+	}
+	
     private void drawJulia() {
-    	JuliaBitmapGenerator generator = this.surfaceView.getGenerator();
-		//generator must be prepared, and must not be busy
-		if (generator != null && !this.surfaceView.isRendering()) {
+        this.surfaceView = (JuliaRendererSurfaceView)this.findViewById(R.id.surfaceview);
+		if (!this.surfaceView.isRendering()) {
 			//generate and draw image
 	    	SeekBar seekBarReal = (SeekBar)this.findViewById(R.id.seekBar_realNumber);
 	    	SeekBar seekBarImaginary = (SeekBar)this.findViewById(R.id.seekBar_imaginaryNumber);
-	    	double cx = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBarReal.getProgress() / seekBarReal.getMax();
-			double cy = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBarImaginary.getProgress() / seekBarImaginary.getMax();
-			generator.setCx(cx);
-			generator.setCy(cy);
+	    	double cx = this.calcConst(seekBarReal);
+			double cy = this.calcConst(seekBarImaginary);
+			this.surfaceView.setCx(cx);
+			this.surfaceView.setCy(cy);
 	    	this.surfaceView.draw();
 		}
     }
@@ -75,7 +78,6 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
     }
  
     //Activity life cycle override --------------------------------------------
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +102,7 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
         //set bitmap generation listener
         this.surfaceView.setListener(this);
     }
-    
+        
     @Override
     protected void onSaveInstanceState(Bundle outState) {
     	//save computation mode
@@ -122,7 +124,15 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
 		result = true;
 		return result;
     }
+
+    @Override
+    public void onContentChanged() {
+    	super.onContentChanged();
+    	this.drawJulia();
+    }
     
+    
+    //activiry event handler --------------------------------------------------
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 		boolean result = false;
@@ -138,9 +148,7 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
 		}
 		return result;
     }
-    
-    
-    
+        
     //View event handler ------------------------------------------------------
     public void onComputationModeSelected(View v) {
     	this.syncComputationMode();
@@ -195,12 +203,12 @@ public class JuliaRendererActivity extends Activity implements BitmapGeneratorLi
 		DecimalFormat formatter = new DecimalFormat("0.0000");
 		switch (seekBar.getId()) {
 		case R.id.seekBar_realNumber:
-	    	double cx = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBar.getProgress() / seekBar.getMax();
+	    	double cx = this.calcConst(seekBar);
 			String valueCx = formatter.format(cx);
 			((TextView)this.findViewById(R.id.textView_realValue)).setText(valueCx);
 			break;
 		case R.id.seekBar_imaginaryNumber:
-			double cy = JuliaBitmapGenerator.CONST_MIN + JuliaBitmapGenerator.CONST_MAX * seekBar.getProgress() / seekBar.getMax();
+			double cy = this.calcConst(seekBar);
 			String valueCy = formatter.format(cy);
 			((TextView)this.findViewById(R.id.textView_imaginaryValue)).setText(valueCy);
 			break;

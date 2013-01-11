@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
+    android:orientation="horizontal" >
+
     <fragment
         android:id="@+id/fragment_control"
         android:name="tmf3jr.android.images.julia.JuliaRendererControlFragment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        tools:layout="@layout/control_fragment" />
+
     <fragment
         android:id="@+id/fragment_surface"
         android:name="tmf3jr.android.images.julia.JuliaRendererSurfaceFragment"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        tools:layout="@layout/surfaceview_fragment" />
 
 </LinearLayout>

@@ -95,7 +95,7 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 			int startIndex = processLength * this.threadNum;
 			int endIndex = startIndex + processLength;
 			double heightGap = getHeight() / getScreenHeight();
-			double widthGap = getWidth() / getScreenWidth();			
+			double widthGap = getWidth() / getScreenWidth();
 			Log.d("julia", "threadCount=" + this.threadCount);
 			Log.d("julia", "processLength=" + processLength);
 			Log.d("julia", "startIndex=" + startIndex);

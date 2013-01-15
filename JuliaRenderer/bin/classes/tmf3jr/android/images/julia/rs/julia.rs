@@ -30,7 +30,7 @@ void root(uint32_t* v_out, uint32_t count) {
 	double widthGap = canvas.width / canvas.screenWidth;
 	double heightGap = canvas.height / canvas.screenHeight;
 	double x = canvas.left + widthGap * col;
-	double y = canvas.bottom + heightGap * row;
+	double y = canvas.bottom + heightGap * (canvas.screenHeight - row);
 	//compute Julia fractal
 	int depth;
 	for (depth = 0; depth < param.depth-1; depth++) {

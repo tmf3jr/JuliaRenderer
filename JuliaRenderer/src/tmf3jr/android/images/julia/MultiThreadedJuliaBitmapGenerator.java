@@ -96,6 +96,8 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 			int endIndex = startIndex + processLength;
 			double heightGap = getHeight() / getScreenHeight();
 			double widthGap = getWidth() / getScreenWidth();
+			double bottom = getBottom();	//make thread safe
+			double left = getLeft();		//make thread safe
 			Log.d("julia", "threadCount=" + this.threadCount);
 			Log.d("julia", "processLength=" + processLength);
 			Log.d("julia", "startIndex=" + startIndex);
@@ -103,8 +105,8 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 			for (int i = startIndex; i < endIndex; i++) {
 				int row = i / getScreenWidth();
 				int col = i % getScreenWidth();
-				double y = getBottom() + heightGap * row;
-				double x = getLeft() + widthGap * col;
+				double x = left + widthGap * col;
+				double y = bottom + heightGap * (getScreenHeight() - row);
 				int depth;
 				for (depth = 0; depth < getColorTableGenerator().getSize()-1; depth++) {
 					double x2 = x * x;

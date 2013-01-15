@@ -199,8 +199,6 @@ public class JuliaRendererSurfaceView extends SurfaceView
 		boolean result = false;
 		JuliaBitmapGenerator generator = this.getGenerator();
 		if (generator != null) {
-			Log.d(this.getClass().getSimpleName(), "Scaling from: (" + generator.getLeft() + "," + generator.getBottom() +")");
-			Log.d(this.getClass().getSimpleName(), "Scaling size: (" + generator.getWidth() + "," + generator.getHeight() +")");
 			// calculate new width and height
 			double newWidth = generator.getWidth()
 					/ detector.getScaleFactor();
@@ -212,7 +210,6 @@ public class JuliaRendererSurfaceView extends SurfaceView
 			if (newHeight > JuliaBitmapGenerator.HEIGHT_MAX) {
 				newHeight = JuliaBitmapGenerator.HEIGHT_MAX;
 			}
-			Log.d(this.getClass().getSimpleName(), "Scaled size: (" + newWidth + "," + newHeight +")");
 			// calculate new bottom and left
 			double newLeft = generator.getLeft() + (generator.getWidth() - newWidth) / 2;
 			double newBottom = generator.getBottom() + (generator.getHeight() - newHeight) / 2;
@@ -226,7 +223,6 @@ public class JuliaRendererSurfaceView extends SurfaceView
 			} else if (newBottom + newHeight > JuliaBitmapGenerator.CONST_MAX) {
 				newBottom = JuliaBitmapGenerator.CONST_MAX - newHeight;
 			}
-			Log.d(this.getClass().getSimpleName(), "Scaled to: (" + newLeft + "," + newBottom +")");
 			// update screen size and position
 			generator.setWidth(newWidth);
 			generator.setHeight(newHeight);

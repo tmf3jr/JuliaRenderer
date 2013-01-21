@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -64,6 +65,7 @@ public class JuliaRendererThread extends Thread {
 					throw new IllegalStateException("BitmapGenerator must not be null");
 				}
 				//draw canvas
+				Log.d(this.getClass().getSimpleName(), "Drawing started");
 				Canvas canvas = null;
 				try {
 					canvas = this.holder.lockCanvas();
@@ -79,6 +81,7 @@ public class JuliaRendererThread extends Thread {
 						this.holder.unlockCanvasAndPost(canvas);
 					}
 				}
+				Log.d(this.getClass().getSimpleName(), "Drawing completed");
 			} catch (InterruptedException e) {
 				this.running = false;
 			}

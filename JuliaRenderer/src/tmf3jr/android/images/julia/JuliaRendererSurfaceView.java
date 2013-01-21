@@ -60,7 +60,7 @@ public class JuliaRendererSurfaceView extends SurfaceView
 	 * This method just notify rendering thread to draw.
 	 */
 	public void draw() {
-		if (this.rendererThread != null) {
+		if (this.rendererThread != null && !this.isRendering()) {
 			synchronized(this.rendererThread) {
 				this.getGenerator().setCx(this.cx);
 				this.getGenerator().setCy(this.cy);

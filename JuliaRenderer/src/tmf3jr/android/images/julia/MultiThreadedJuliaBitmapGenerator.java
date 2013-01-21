@@ -60,11 +60,19 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 		}
 		//create worker threads
 		Thread[] workers = new Thread[this.threadCount];
+		double bottom = getBottom();	//for thread safety
+		double left = getLeft();		//for thread safety
+		double height = getHeight();
+		double width = getWidth();
 		for (int i = 0; i < workers.length; i++) {
 			JuliaComputationWorker worker = new JuliaComputationWorker();
 			worker.bitmap = bitmap;
 			worker.threadCount = workers.length;
 			worker.threadNum = i;
+			worker.bottom = bottom;
+			worker.left = left;
+			worker.height = height;
+			worker.width = width;
 			worker.start();
 			workers[i] = worker;
 		}
@@ -88,6 +96,10 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 		int threadCount;
 		int threadNum;
 		int[] bitmap;
+		double bottom;
+		double left;
+		double height;
+		double width;
 
 		@Override
 		public void run() {
@@ -96,15 +108,12 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 			int startIndex = processLength * this.threadNum;
 			int endIndex = startIndex + processLength;
 			//prepare to determine coordinates
-			double heightGap = getHeight() / getScreenHeight();
-			double widthGap = getWidth() / getScreenWidth();
-			double bottom = getBottom();	//for thread safety
-			double left = getLeft();		//for thread safety
+			double heightGap = this.height / getScreenHeight();
+			double widthGap = this.width / getScreenWidth();
 			//debug
-			Log.d("julia", "threadCount=" + this.threadCount);
-			Log.d("julia", "processLength=" + processLength);
-			Log.d("julia", "startIndex=" + startIndex);
-			Log.d("julia", "endIndex="+endIndex);
+			Log.d("julia.thread"+this.threadNum, "processLength=" + processLength);
+			Log.d("julia.thread"+this.threadNum, "startIndex=" + startIndex);
+			Log.d("julia.thread"+this.threadNum, "endIndex="+endIndex);
 			//create bitmap
 			for (int i = startIndex; i < endIndex; i++) {
 				//convert array index to coordinates
@@ -114,14 +123,16 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 				double y = bottom + heightGap * (getScreenHeight() - row);
 				//compute Julia set
 				int depth;
+				double cx = getCx();
+				double cy = getCy();
 				for (depth = 0; depth < getColorTableGenerator().getSize()-1; depth++) {
 					double x2 = x * x;
 					double y2 = y * y;
 					if (x2 + y2 >= COORD_DISTANCE_MAX) {
 						break;
 					}
-					double nx = x2 - y2 + getCx();
-					double ny = 2*x*y + getCy();
+					double nx = x2 - y2 + cx;
+					double ny = 2*x*y + cy;
 					x = nx;
 					y = ny;
 				}
@@ -129,22 +140,5 @@ public class MultiThreadedJuliaBitmapGenerator extends JuliaBitmapGenerator {
 			}
 		}		
 	}
-
-
-	//access methods ----------------------------------------------------------
-	public int getThreadCount() {
-		return threadCount;
-	}
-
-	public void setThreadCount(int threadCount) {
-		this.threadCount = threadCount;
-	}
-
-//	//private methods ---------------------------------------------------------
-//	public int getNumOfCPUs() {
-//		int numOfCPUs = Runtime.getRuntime().availableProcessors();
-//		Log.d(this.getClass().getSimpleName(), "Num of CPUs = " + numOfCPUs);
-//		return numOfCPUs;
-//	}
 	
 }

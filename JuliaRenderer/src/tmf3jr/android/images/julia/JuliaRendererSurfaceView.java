@@ -185,7 +185,7 @@ public class JuliaRendererSurfaceView extends SurfaceView
 		this.createSurfaceViewThread();
 		//notify screen changed
 		this.screenListener.onScreenChanged();
-        //Notify to draw to rendering thread
+        //Notify rendering thread to draw
         this.draw();
 	}
 

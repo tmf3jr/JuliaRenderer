@@ -20,7 +20,7 @@ public abstract class JuliaBitmapGenerator extends ColorTableBitmapGenerator {
 	public static final double COORD_MAX = 2.0;	
 	public static final double COORD_DISTANCE_MAX = 4.0;
 	public static final int RESOLUTION_DEFAULT = 400;
-	public static final int DEPTH_DEFAULT = 16;
+	public static final int DEPTH_DEFAULT = 32;
 	
 	//Julia fractal definition
 	/** Cx of the coordinate */

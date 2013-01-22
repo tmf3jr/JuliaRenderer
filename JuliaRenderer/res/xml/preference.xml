@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <PreferenceCategory android:summary="@string/pref_summary_CPU" android:title="@string/pref_CPU">
-        <EditTextPreference android:positiveButtonText="@android:string/ok" android:dialogTitle="@string/pref_numOfCPUs" android:dialogMessage="@string/pref_numOfCPUs" android:negativeButtonText="@android:string/cancel" android:key="@string/prefkey_numOfCPU" android:defaultValue="2" android:title="@string/pref_numOfCPUs"/>
+
+    <PreferenceCategory
+        android:summary="@string/pref_summary_CPU"
+        android:title="@string/pref_CPU" >
+        <EditTextPreference
+            android:defaultValue="2"
+            android:dialogMessage="@string/pref_numOfCPUs"
+            android:dialogTitle="@string/pref_numOfCPUs"
+            android:key="@string/prefkey_numOfCPU"
+            android:negativeButtonText="@android:string/cancel"
+            android:positiveButtonText="@android:string/ok"
+            android:title="@string/pref_numOfCPUs" />
     </PreferenceCategory>
-    
+    <PreferenceCategory
+        android:summary="@string/pref_color"
+        android:title="@string/pref_color" >
+        <ListPreference
+            android:defaultValue="@string/pref_color_default"
+            android:dialogTitle="@string/pref_color"
+            android:entries="@array/pref_colorEntries"
+            android:entryValues="@array/pref_colorValues"
+            android:key="@string/prefkey_color"
+            android:negativeButtonText="@android:string/cancel"
+            android:positiveButtonText="@android:string/ok"
+            android:title="@string/pref_color" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

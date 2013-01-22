@@ -14,8 +14,4 @@
     <string name="empty"></string>
     <string name="menu_settings">Settings</string>
     <string name="not_implemented">Not implemented yet</string>
-    <string name="pref_numOfCPUs">Num of CPUs</string>
-    <string name="pref_CPU">CPU Computation settings</string>
-    <string name="pref_summary_CPU">Computation on CPU</string>
-    <string name="prefkey_numOfCPU">prefkey_numOfCPU</string>
 </resources>

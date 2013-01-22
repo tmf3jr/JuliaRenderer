@@ -2,6 +2,7 @@ package tmf3jr.android.images.julia;
 
 import tmf3jr.android.images.BitmapGeneratorComputationMode;
 import tmf3jr.android.images.BitmapGeneratorListener;
+import tmf3jr.android.images.GalacticColorTableGenerator;
 import tmf3jr.android.images.julia.rs.RenderScriptJuliaBitmapGenerator;
 import tmf3jr.android.images.julia.R;
 import android.content.Context;
@@ -48,7 +49,7 @@ public class JuliaRendererThread extends Thread {
 	 * @param surfaceView
 	 */
 	public JuliaRendererThread(SurfaceView surfaceView) {
-		this(surfaceView, BitmapGeneratorComputationMode.CPU, null);
+		this(surfaceView, BitmapGeneratorComputationMode.RENDER_SCRIPT, null);
 	}
 	
 	//Thread implementation ---------------------------------------------------
@@ -109,6 +110,20 @@ public class JuliaRendererThread extends Thread {
 			this.generator = new MultiThreadedJuliaBitmapGenerator(threadCount);
 		}
 		this.generator.setListener(listener);
+		
+		
+		
+		String prefKeyColor = context.getString(R.string.prefkey_color);
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+		if (prefKeyColor != null && sharedPref != null) {
+			String prefColorDefault = context.getString(R.string.pref_color_default);
+			String prefColorGalactic = context.getString(R.string.pref_color_galactic);			
+			String prefColorValue = sharedPref.getString(prefKeyColor, prefColorDefault);
+			if (prefColorValue.equals(prefColorGalactic)) {
+				int size = this.generator.getColorTableGenerator().getSize();
+				this.generator.setColorTableGenerator(new GalacticColorTableGenerator(size));
+			}
+		}		
 	}
 
 	

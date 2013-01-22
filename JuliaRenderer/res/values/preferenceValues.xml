@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_colorValues">
+        <item>default</item>
+        <item>galactic</item>
+    </string-array>
+    <string-array name="pref_colorEntries">
+        <item>Default gradation</item>
+        <item>Galactic gradation</item>
+    </string-array>
+
+    <string name="prefkey_color">prefkey_color</string>
+    <string name="prefkey_numOfCPU">prefkey_numOfCPU</string>
+    <string name="pref_CPU">CPU Computation settings</string>
+    <string name="pref_numOfCPUs">Num of CPUs</string>
+    <string name="pref_summary_CPU">Computation on CPU</string>
+    <string name="pref_color">Color Settings</string>
+    <string name="pref_color_default">default</string>
+    <string name="pref_color_galactic">galactic</string>
+
+</resources>
